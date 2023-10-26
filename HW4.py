@@ -3,7 +3,7 @@ import csv
 aver_salary = 0
 items = list()
 
-with open('W4', newline='\n', encoding='utf-8') as file:
+with open('W4.csv', newline='\n', encoding='utf-8') as file:
     reader = csv.reader(file, delimiter=',')
     for row in reader:
         # print(row)
@@ -25,3 +25,11 @@ filtered = list()
 for item in items:
     if(item['salary'] > aver_salary) and item['age'] > 25 + 27 % 10:
         filtered.append(item)
+
+filtered = sorted(filtered, key=lambda i: i['number'])
+
+with open('RHW4.csv', 'w', encoding='utf-8', newline='') as result:
+    writer = csv.writer(result, delimiter=',', quotechar=';', quoting=csv.QUOTE_MINIMAL)
+
+    for item in filtered:
+        writer.writerow(item.values())
