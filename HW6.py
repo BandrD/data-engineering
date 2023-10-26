@@ -13,5 +13,5 @@ html_table = json2html.convert(json=data)
 # Вывод HTML-таблицы на экран
 print(html_table)
 
-with open('result.html', 'w', encoding='utf-8') as f:
+with open('RHW6.html', 'w', encoding='utf-8') as f:
     f.write(html_table)
