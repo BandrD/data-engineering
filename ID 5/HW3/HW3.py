@@ -19,14 +19,6 @@ def insert_many(collection):
     # Добавление записей в коллекцию
     collection.insert_many(get_msg())
 
-def to_json(filename, data):
-    filename += '.json'
-    print(filename)
-    with open(filename, 'w', encoding='utf-8') as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=2, default=str)
-
-
-
 def delete_by_salary(collection):
     res = collection.delete_many({
         "$or": [
